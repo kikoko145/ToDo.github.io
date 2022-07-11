@@ -26,7 +26,7 @@ function addTodo() {
     renderTodos();
     saveToStorage();
 }
-buttonElement.oneclick = addTodo;
+buttonElement.onclick = addTodo;
 function deleteTodo(pos) {
     todo.splice(pos, 1);
     renderTodos();
