@@ -6,10 +6,10 @@ function renderTodos() {
     listElement.innerHTML = "";
     for (todos of todos) {
         var todoElement = document.createElement("li");
-        var todoText = document.createTextNode(todo);
+        var todoText = document.createTextNode(todos);
         var linkElement = document.createElement("a");
         linkElement.setAttribute("href", "#");
-        var pos = todos.indexOf(todo);
+        var pos = todos.indexOf(todos);
         linkElement.setAttribute("onclick", "deleteTodo(" + pos + ")");
         var linkText = document.createTextNode("done");
         linkElement.appendChild(linkText);
@@ -20,6 +20,7 @@ function renderTodos() {
 }
 renderTodos();
 function addTodo() {
+    var todos = JSON.parse(localStorage.getItem("list_todos")) || [];
     var todoText = inputElement.value;
     todos.push(todoText);
     inputElement.value = "";
