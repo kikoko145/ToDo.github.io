@@ -8,10 +8,34 @@
         <h1>To Do List</h1>
         <ul>
         </ul>
-        <input type="text" placeholder="New Task">
-        <button class='btn_add'>ADD</button>
+            <input type="text" id="input" placeholder="New Task">
+            <button class='btn_add' id="btn_add">ADD &plus; </button>
         <p>Insert New Task</p>
+        <div class="todo-list" id="list">
+        </div>
     </div>
-    <script src="todo.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- <script src="todo.js"></script> -->
+    <script>
+         var listArray = [];
+        $(function () {
+                $("#btn_add").click(function () {
+                var input = $("#input").val();
+                console.log(input);
+
+                $("#input").val("").change();
+                $("#list").find("div").remove();
+                listArray.push(input);
+                renderList();
+            });
+        });
+        function renderList(){
+            for(var i = 0; i < listArray.length; i++){
+            var option = "<div class='card' id='card' >"+listArray[i]+"</div>";
+            $("#list").append(option);
+            }
+        }
+        //console.log(textVal);
+    </script>
 </body>
 </html>
